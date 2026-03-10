@@ -2,7 +2,7 @@
 > Élève Ingénieur Statisticien Économiste
 
 ## 📁 Structure du projet
-
+e
 ```
 portfolio/
 ├── index.html          ← Page principale (Accueil, À propos, Projets, Compétences, Portfolio, Contact)
