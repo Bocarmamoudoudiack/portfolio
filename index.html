@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bocar Mamoudou DIACK — Ingénieur Statisticien Économiste</title>
+  <meta name="description" content="Portfolio de Bocar Mamoudou DIACK — Élève Ingénieur Statisticien Économiste à l'ENSAE." />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ───── CURSOR ───── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ───── LOADER ───── -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <span class="loader__name">BD</span>
+      <div class="loader__bar"><div class="loader__fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ───── HEADER ───── -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="logo">
+        <span class="logo__text">Bocar<em>DIACK</em></span>
+      </a>
+
+      <nav class="navbar" id="navbar">
+        <ul class="navbar__list">
+          <li><a href="#hero"      class="nav-link" data-text="Accueil">Accueil</a></li>
+          <li><a href="#about"     class="nav-link" data-text="À propos">À propos</a></li>
+          <li><a href="#services"  class="nav-link" data-text="Projets">Projets</a></li>
+          <li><a href="#skills"    class="nav-link" data-text="Compétences">Compétences</a></li>
+          <li><a href="#portfolio" class="nav-link" data-text="Portfolio">Portfolio</a></li>
+          <li><a href="blog.html"  class="nav-link" data-text="Blog">Blog</a></li>
+          <li><a href="#contact"   class="nav-link nav-link--cta" data-text="Contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__right">
+        <div class="socials">
+          <a href="#" class="social-link" aria-label="Facebook"  target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn"  target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="GitHub"    target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter/X" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l16 16M4 20 20 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          </a>
+        </div>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───── HERO ───── -->
+  <section id="hero" class="hero">
+    <div class="hero__bg">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+    <div class="container hero__container">
+      <div class="hero__content">
+        <p class="hero__label reveal-up">Élève Ingénieur Statisticien Économiste</p>
+        <h1 class="hero__title reveal-up" style="--delay:0.1s">
+          Bonjour, je suis<br/>
+          <em>Bocar Mamoudou</em><br/>
+          <span class="hero__surname">DIACK</span>
+        </h1>
+        <p class="hero__desc reveal-up" style="--delay:0.2s">
+          Passionné par la donnée, l'économie et les algorithmes.
+          Je transforme les chiffres en décisions éclairées.
+        </p>
+        <div class="hero__actions reveal-up" style="--delay:0.3s">
+          <a href="#portfolio" class="btn btn--primary">Voir mes projets</a>
+          <a href="#contact"   class="btn btn--ghost">Me contacter</a>
+        </div>
+      </div>
+      <div class="hero__visual reveal-right" style="--delay:0.2s">
+        <div class="hero__avatar-wrap">
+          <div class="hero__avatar-ring"></div>
+          <img src="img/avatar.png" alt="Bocar Mamoudou DIACK" class="hero__avatar" />
+          <div class="hero__badge">
+            <span class="hero__badge-icon">📊</span>
+            <span>Data &amp; Stats</span>
+          </div>
+        </div>
+        <div class="hero__stat-cards">
+          <div class="stat-card reveal-up" style="--delay:0.4s">
+            <span class="stat-card__num" data-count="3">0</span>+
+            <span class="stat-card__label">Années d'études</span>
+          </div>
+          <div class="stat-card reveal-up" style="--delay:0.5s">
+            <span class="stat-card__num" data-count="12">0</span>+
+            <span class="stat-card__label">Projets réalisés</span>
+          </div>
+          <div class="stat-card reveal-up" style="--delay:0.6s">
+            <span class="stat-card__num" data-count="6">0</span>+
+            <span class="stat-card__label">Technologies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Défiler vers le bas">
+      <span>Défiler</span>
+      <div class="scroll-hint__arrow"></div>
+    </a>
+  </section>
+
+  <!-- ───── ABOUT ───── -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">01 — À propos</span>
+        <h2 class="section-title">Qui suis-je ?</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__image-wrap reveal-left">
+          <div class="about__image-frame">
+            <img src="img/person.jpg" alt="Bocar DIACK" class="about__image" />
+          </div>
+          <div class="about__image-deco"></div>
+        </div>
+        <div class="about__content reveal-right">
+          <p class="about__text">
+            Je suis <strong>Bocar Mamoudou DIACK</strong>, élève ingénieur statisticien économiste.
+            Formé à l'analyse quantitative, à la modélisation statistique et à la programmation,
+            je m'intéresse aux intersections entre la <strong>data science</strong>, l'<strong>économétrie</strong>
+            et les <strong>politiques publiques</strong>.
+          </p>
+          <p class="about__text">
+            Mon parcours m'a amené à maîtriser des outils de pointe pour extraire de la valeur
+            des données complexes — des séries temporelles aux modèles de régression avancés.
+          </p>
+          <div class="about__info">
+            <div class="info-item">
+              <span class="info-item__icon">🎓</span>
+              <div>
+                <strong>Formation</strong>
+                <span>ENSAE / École nationale de la statistique</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon">📍</span>
+              <div>
+                <strong>Localisation</strong>
+                <span>Dakar, Sénégal</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <span>bocar.diack@example.com</span>
+              </div>
+            </div>
+          </div>
+          <a href="img/cv.pdf" class="btn btn--primary" download>
+            Télécharger mon CV
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SERVICES / PROJETS ───── -->
+  <section id="services" class="services section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">02 — Projets académiques</span>
+        <h2 class="section-title">Ce que je réalise</h2>
+      </div>
+      <div class="services__grid">
+
+        <div class="service-card reveal-up" style="--delay:0s">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <h3 class="service-card__title">Macro-économie</h3>
+          <p class="service-card__desc">Modélisation macroéconomique, analyse des cycles économiques et politiques budgétaires.</p>
+          <span class="service-card__tag">DSGE · IS-LM · Séries temporelles</span>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.1s">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="service-card__title">Algorithmique</h3>
+          <p class="service-card__desc">Conception d'algorithmes efficaces, structures de données et optimisation combinatoire.</p>
+          <span class="service-card__tag">Python · C++ · Complexité</span>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.2s">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="service-card__title">Statistiques</h3>
+          <p class="service-card__desc">Tests d'hypothèses, régressions, analyse multivariée et inférence bayésienne.</p>
+          <span class="service-card__tag">R · SAS · STATA</span>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.3s">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="service-card__title">Micro-économie</h3>
+          <p class="service-card__desc">Théorie du consommateur, équilibre général et économie de l'information.</p>
+          <span class="service-card__tag">Théorie des jeux · Optimisation</span>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.4s">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="service-card__title">Comptabilité nationale</h3>
+          <p class="service-card__desc">Analyse des agrégats économiques, tableaux entrées-sorties et comptes nationaux.</p>
+          <span class="service-card__tag">PIB · TES · Comptes sectoriels</span>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.5s">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="service-card__title">Bases de données</h3>
+          <p class="service-card__desc">Conception de schémas relationnels, requêtes SQL avancées et optimisation de BDD.</p>
+          <span class="service-card__tag">PostgreSQL · MySQL · UML</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SKILLS ───── -->
+  <section id="skills" class="skills section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">03 — Compétences</span>
+        <h2 class="section-title">Mes outils &amp; savoir-faire</h2>
+      </div>
+      <div class="skills__layout">
+
+        <div class="skills__bars reveal-left">
+          <h3 class="skills__subtitle">Langages &amp; Logiciels</h3>
+
+          <div class="skill-bar" data-value="90">
+            <div class="skill-bar__header"><span>Python</span><span class="skill-bar__pct">90%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" style="--pct:90%"></div></div>
+          </div>
+          <div class="skill-bar" data-value="85">
+            <div class="skill-bar__header"><span>R / RStudio</span><span class="skill-bar__pct">85%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" style="--pct:85%"></div></div>
+          </div>
+          <div class="skill-bar" data-value="80">
+            <div class="skill-bar__header"><span>SAS</span><span class="skill-bar__pct">80%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" style="--pct:80%"></div></div>
+          </div>
+          <div class="skill-bar" data-value="75">
+            <div class="skill-bar__header"><span>STATA</span><span class="skill-bar__pct">75%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" style="--pct:75%"></div></div>
+          </div>
+          <div class="skill-bar" data-value="70">
+            <div class="skill-bar__header"><span>SQL</span><span class="skill-bar__pct">70%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" style="--pct:70%"></div></div>
+          </div>
+          <div class="skill-bar" data-value="65">
+            <div class="skill-bar__header"><span>LaTeX</span><span class="skill-bar__pct">65%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" style="--pct:65%"></div></div>
+          </div>
+        </div>
+
+        <div class="skills__tags reveal-right">
+          <h3 class="skills__subtitle">Domaines d'expertise</h3>
+          <div class="tag-cloud">
+            <span class="tag tag--lg">Économétrie</span>
+            <span class="tag">Séries temporelles</span>
+            <span class="tag tag--lg">Machine Learning</span>
+            <span class="tag">Analyse multivariée</span>
+            <span class="tag tag--sm">Big Data</span>
+            <span class="tag tag--lg">Statistique inférentielle</span>
+            <span class="tag">Visualisation de données</span>
+            <span class="tag tag--sm">NLP</span>
+            <span class="tag">Théorie des jeux</span>
+            <span class="tag tag--lg">Data Mining</span>
+            <span class="tag tag--sm">Simulation Monte-Carlo</span>
+            <span class="tag">Optimisation</span>
+          </div>
+          <div class="skills__langs">
+            <h3 class="skills__subtitle" style="margin-top:2rem">Langues</h3>
+            <div class="lang-item"><span>Français</span><div class="lang-dots"><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span></div></div>
+            <div class="lang-item"><span>Anglais</span><div class="lang-dots"><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span></div></div>
+            <div class="lang-item"><span>Wolof</span>  <div class="lang-dots"><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── PORTFOLIO ───── -->
+  <section id="portfolio" class="portfolio section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">04 — Portfolio</span>
+        <h2 class="section-title">Projets récents</h2>
+      </div>
+
+      <div class="portfolio__filters reveal-up">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="stat">Statistiques</button>
+        <button class="filter-btn" data-filter="data">Data Science</button>
+        <button class="filter-btn" data-filter="eco">Économie</button>
+      </div>
+
+      <div class="portfolio__grid">
+
+        <article class="project-card reveal-up" data-category="stat" style="--delay:0s">
+          <div class="project-card__thumb">
+            <div class="project-card__placeholder" style="--hue:220">
+              <svg viewBox="0 0 80 60" fill="none"><polyline points="5,50 20,30 35,40 50,15 65,25 75,10" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__link">Voir le projet →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__cat">Statistiques</span>
+            <h3 class="project-card__title">Analyse de régression multivariée</h3>
+            <p class="project-card__desc">Modélisation des déterminants du PIB en Afrique sub-saharienne avec tests d'endogénéité.</p>
+            <div class="project-card__tech">
+              <span>R</span><span>STATA</span><span>LaTeX</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-category="data" style="--delay:0.1s">
+          <div class="project-card__thumb">
+            <div class="project-card__placeholder" style="--hue:160">
+              <svg viewBox="0 0 80 60" fill="none"><circle cx="40" cy="30" r="20" stroke="currentColor" stroke-width="1.5"/><circle cx="40" cy="30" r="10" stroke="currentColor" stroke-width="1.5"/><circle cx="40" cy="30" r="3" fill="currentColor"/></svg>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__link">Voir le projet →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__cat">Data Science</span>
+            <h3 class="project-card__title">Clustering &amp; segmentation</h3>
+            <p class="project-card__desc">Segmentation de ménages sénégalais par niveau de vie via k-means et CAH.</p>
+            <div class="project-card__tech">
+              <span>Python</span><span>Scikit-learn</span><span>Matplotlib</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-category="eco" style="--delay:0.2s">
+          <div class="project-card__thumb">
+            <div class="project-card__placeholder" style="--hue:40">
+              <svg viewBox="0 0 80 60" fill="none"><rect x="10" y="30" width="10" height="20" fill="currentColor" opacity=".6"/><rect x="25" y="20" width="10" height="30" fill="currentColor" opacity=".8"/><rect x="40" y="10" width="10" height="40" fill="currentColor"/><rect x="55" y="25" width="10" height="25" fill="currentColor" opacity=".7"/></svg>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__link">Voir le projet →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__cat">Économie</span>
+            <h3 class="project-card__title">Analyse macro — WAEMU</h3>
+            <p class="project-card__desc">Étude des chocs asymétriques dans la zone UEMOA et implications pour la politique monétaire.</p>
+            <div class="project-card__tech">
+              <span>SAS</span><span>EViews</span><span>LaTeX</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-category="data" style="--delay:0.3s">
+          <div class="project-card__thumb">
+            <div class="project-card__placeholder" style="--hue:270">
+              <svg viewBox="0 0 80 60" fill="none"><path d="M10 50 Q25 10 40 30 Q55 50 70 10" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__link">Voir le projet →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__cat">Data Science</span>
+            <h3 class="project-card__title">Prévision de séries temporelles</h3>
+            <p class="project-card__desc">Modèle ARIMA-GARCH appliqué aux prix des matières premières agricoles au Sénégal.</p>
+            <div class="project-card__tech">
+              <span>Python</span><span>R</span><span>Prophet</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-category="stat" style="--delay:0.4s">
+          <div class="project-card__thumb">
+            <div class="project-card__placeholder" style="--hue:10">
+              <svg viewBox="0 0 80 60" fill="none"><ellipse cx="40" cy="30" rx="30" ry="20" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="1"/><line x1="40" y1="10" x2="40" y2="50" stroke="currentColor" stroke-width="1"/></svg>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__link">Voir le projet →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__cat">Statistiques</span>
+            <h3 class="project-card__title">Enquête sur l'emploi des jeunes</h3>
+            <p class="project-card__desc">Conception, collecte et analyse statistique d'une enquête sur le chômage des jeunes dakarois.</p>
+            <div class="project-card__tech">
+              <span>STATA</span><span>SAS</span><span>Excel</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-category="eco" style="--delay:0.5s">
+          <div class="project-card__thumb">
+            <div class="project-card__placeholder" style="--hue:100">
+              <svg viewBox="0 0 80 60" fill="none"><polygon points="40,5 75,55 5,55" stroke="currentColor" stroke-width="1.5" fill="currentColor" opacity=".2"/><polygon points="40,15 65,50 15,50" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__link">Voir le projet →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__cat">Économie</span>
+            <h3 class="project-card__title">Modèle d'équilibre général</h3>
+            <p class="project-card__desc">Construction d'un modèle d'équilibre général calculable pour une petite économie ouverte.</p>
+            <div class="project-card__tech">
+              <span>GAMS</span><span>Python</span><span>LaTeX</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CONTACT ───── -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">05 — Contact</span>
+        <h2 class="section-title">Travaillons ensemble</h2>
+      </div>
+      <div class="contact__layout">
+
+        <div class="contact__info reveal-left">
+          <p class="contact__intro">
+            Vous avez un projet, une opportunité de stage, ou simplement envie d'échanger ?
+            N'hésitez pas à me contacter !
+          </p>
+          <div class="contact__items">
+            <div class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:bocar.diack@example.com">bocar.diack@example.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.11h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.91 5.91l.84-.84a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+              </div>
+              <div>
+                <strong>Téléphone</strong>
+                <a href="tel:+221700000000">+221 70 000 00 00</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong>Localisation</strong>
+                <span>Dakar, Sénégal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact__form reveal-right" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" placeholder="Votre nom" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Objet</label>
+            <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            Envoyer le message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__brand">
+        <a href="index.html" class="logo"><span class="logo__text">Bocar<em>DIACK</em></span></a>
+        <p>Élève Ingénieur Statisticien Économiste<br/>Passionné par la donnée et l'analyse quantitative.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#services">Projets</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__socials">
+        <h4>Réseaux</h4>
+        <div class="footer__social-links">
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l16 16M4 20 20 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© <span id="year"></span> Bocar Mamoudou DIACK. Tous droits réservés.</p>
+        <p>Conçu &amp; développé avec ❤️ à Dakar</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

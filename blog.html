@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Bocar Mamoudou DIACK</title>
+  <meta name="description" content="Articles et réflexions de Bocar Mamoudou DIACK sur la statistique, l'économie et la data science." />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    .blog-hero {
+      padding: 10rem 0 5rem;
+      background: linear-gradient(180deg, #0a0a0f 0%, #0d0d14 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .blog-hero__tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .blog-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .blog-hero__desc {
+      max-width: 560px;
+      margin: 1.5rem auto 0;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    /* Blog grid */
+    .blog-section { padding: 5rem 0; background: var(--bg); }
+    .blog__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,168,76,0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .blog-card--featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .blog-card__thumb {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, hsl(var(--hue,220), 25%, 12%), hsl(var(--hue,220), 15%, 8%));
+      display: flex; align-items: center; justify-content: center;
+      color: hsl(var(--hue,220), 40%, 40%);
+      font-family: var(--font-display);
+      font-size: 3rem;
+    }
+    .blog-card--featured .blog-card__thumb { aspect-ratio: auto; }
+    .blog-card__body { padding: 1.75rem; }
+    .blog-card__meta {
+      display: flex; gap: 1rem; align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card__cat {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+    }
+    .blog-card__date {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .blog-card__title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      transition: color var(--transition);
+    }
+    .blog-card:hover .blog-card__title { color: var(--gold-light); }
+    .blog-card__excerpt {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .blog-card__read {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: gap var(--transition);
+    }
+    .blog-card:hover .blog-card__read { gap: 0.7rem; }
+    .blog-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 3rem;
+      transition: color var(--transition);
+    }
+    .blog-back:hover { color: var(--gold); }
+    .blog-back svg { width: 16px; height: 16px; }
+    @media (max-width: 768px) {
+      .blog__grid { grid-template-columns: 1fr; }
+      .blog-card--featured { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="logo">
+        <span class="logo__text">Bocar<em>DIACK</em></span>
+      </a>
+      <nav class="navbar" id="navbar">
+        <ul class="navbar__list">
+          <li><a href="index.html#hero"      class="nav-link">Accueil</a></li>
+          <li><a href="index.html#about"     class="nav-link">À propos</a></li>
+          <li><a href="index.html#services"  class="nav-link">Projets</a></li>
+          <li><a href="index.html#skills"    class="nav-link">Compétences</a></li>
+          <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="blog.html"            class="nav-link active">Blog</a></li>
+          <li><a href="index.html#contact"   class="nav-link nav-link--cta">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="container">
+      <span class="blog-hero__tag reveal-up">Journal & Réflexions</span>
+      <h1 class="blog-hero__title reveal-up" style="--delay:0.1s">Le Blog</h1>
+      <p class="blog-hero__desc reveal-up" style="--delay:0.2s">
+        Articles sur la statistique, l'économétrie, la data science et les politiques de développement en Afrique.
+      </p>
+    </div>
+  </section>
+
+  <!-- BLOG POSTS -->
+  <section class="blog-section">
+    <div class="container">
+      <a href="index.html" class="blog-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Retour au portfolio
+      </a>
+
+      <div class="blog__grid">
+
+        <!-- Featured -->
+        <article class="blog-card blog-card--featured reveal-up" style="--hue:220">
+          <div class="blog-card__thumb" style="--hue:220">📊</div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__cat">Économétrie</span>
+              <span class="blog-card__date">15 Janvier 2025</span>
+            </div>
+            <h2 class="blog-card__title">L'économétrie des données de panel : une introduction pratique</h2>
+            <p class="blog-card__excerpt">
+              Les données de panel combinent les dimensions transversale et temporelle pour offrir une richesse
+              analytique incomparable. Dans cet article, nous explorons les modèles à effets fixes et aléatoires,
+              le test de Hausman, et les applications pratiques dans l'analyse macroéconomique africaine.
+            </p>
+            <span class="blog-card__read">
+              Lire l'article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card reveal-up" style="--delay:0.1s">
+          <div class="blog-card__thumb" style="--hue:160">🤖</div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__cat">Data Science</span>
+              <span class="blog-card__date">3 Décembre 2024</span>
+            </div>
+            <h3 class="blog-card__title">Machine Learning pour économistes : par où commencer ?</h3>
+            <p class="blog-card__excerpt">
+              Un guide pratique pour les économistes qui souhaitent intégrer les méthodes de machine learning
+              dans leurs analyses, sans abandonner la rigueur économétrique.
+            </p>
+            <span class="blog-card__read">
+              Lire l'article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card reveal-up" style="--delay:0.2s">
+          <div class="blog-card__thumb" style="--hue:40">💹</div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__cat">Développement</span>
+              <span class="blog-card__date">18 Novembre 2024</span>
+            </div>
+            <h3 class="blog-card__title">Mesurer la pauvreté multidimensionnelle au Sénégal</h3>
+            <p class="blog-card__excerpt">
+              L'indice de pauvreté multidimensionnelle (IPM) va au-delà du revenu pour capturer les privations
+              en éducation, santé et niveau de vie. Analyse de la situation sénégalaise.
+            </p>
+            <span class="blog-card__read">
+              Lire l'article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="blog-card reveal-up" style="--delay:0.1s">
+          <div class="blog-card__thumb" style="--hue:270">📈</div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__cat">Statistiques</span>
+              <span class="blog-card__date">5 Octobre 2024</span>
+            </div>
+            <h3 class="blog-card__title">Les séries temporelles : ARIMA vs Prophet</h3>
+            <p class="blog-card__excerpt">
+              Comparaison des approches classiques ARIMA et du modèle Prophet de Facebook pour la prévision
+              de séries économiques africaines avec saisonnalité complexe.
+            </p>
+            <span class="blog-card__read">
+              Lire l'article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="blog-card reveal-up" style="--delay:0.2s">
+          <div class="blog-card__thumb" style="--hue:10">🎯</div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__cat">Économie</span>
+              <span class="blog-card__date">22 Septembre 2024</span>
+            </div>
+            <h3 class="blog-card__title">Théorie des jeux : applications aux politiques publiques</h3>
+            <p class="blog-card__excerpt">
+              Comment les concepts de l'équilibre de Nash et du dilemme du prisonnier s'appliquent
+              à la conception des politiques économiques et à la coopération internationale.
+            </p>
+            <span class="blog-card__read">
+              Lire l'article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__brand">
+        <a href="index.html" class="logo"><span class="logo__text">Bocar<em>DIACK</em></span></a>
+        <p>Élève Ingénieur Statisticien Économiste<br/>Passionné par la donnée et l'analyse quantitative.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#about">À propos</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__socials">
+        <h4>Réseaux</h4>
+        <div class="footer__social-links">
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© <span id="year"></span> Bocar Mamoudou DIACK. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
