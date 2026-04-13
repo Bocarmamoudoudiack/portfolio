@@ -94,4 +94,5 @@ Dans `blog.html`, ajoutez/modifiez les `<article class="blog-card">` avec vos ar
 | Blog | `blog.html` | Articles avec mise en page éditoriale |
 
 ---
-*Conçu avec ❤️ à Dakar, Sénégal*
+
+
